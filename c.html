@@ -82,7 +82,9 @@
   </div>
 
   <div class="text">💞 Our Beautiful Memories 💞</div>
-  <button class="next-btn" id="nextBtn" onclick="window.location.href='k.html'">Next ➡️</button>
+
+  <!-- ✅ Fixed button with function -->
+  <button class="next-btn" id="nextBtn" onclick="gotoK()">Next ➡️</button>
 
   <script>
     const slides = document.querySelectorAll('.slide');
@@ -97,10 +99,9 @@
       }
 
       if (index === slides.length - 1) {
-        // Show button on last image
         setTimeout(() => {
           document.getElementById('nextBtn').classList.add('show');
-        }, 3500); // show button after last image fully shown
+        }, 3500); // show after last image fully visible
       }
     };
 
@@ -108,7 +109,12 @@
       if (index < slides.length - 1) {
         showNextSlide();
       }
-    }, 3500); // 3.5 sec per photo
+    }, 3500);
+
+    // ✅ Function to go to k.html
+    function gotoK() {
+      window.location.href = "k.html";
+    }
   </script>
 
 </body>
