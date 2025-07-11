@@ -91,10 +91,16 @@
     const showNextSlide = () => {
       slides[index].classList.remove('active');
       index++;
+
       if (index < slides.length) {
         slides[index].classList.add('active');
-      } else {
-        document.getElementById('nextBtn').classList.add('show');
+      }
+
+      if (index === slides.length - 1) {
+        // Show button on last image
+        setTimeout(() => {
+          document.getElementById('nextBtn').classList.add('show');
+        }, 3500); // show button after last image fully shown
       }
     };
 
