@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday My Love 🎉</title>
+  <style>
+    body {
+      background: linear-gradient(to top, #ff9a9e, #fad0c4);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', cursive;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Text */
+    .birthday-text {
+      font-size: 3rem;
+      animation: bounce 2s infinite;
+      z-index: 2;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Button */
+    .next-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background: white;
+      color: hotpink;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    /* Balloon style */
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 40px;
+      height: 55px;
+      background: red;
+      border-radius: 50%;
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    .balloon::before {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: white;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-120vh); }
+    }
+
+    /* Heart style */
+    .heart {
+      width: 15px;
+      height: 15px;
+      background: #ff69b4;
+      position: absolute;
+      top: 100%;
+      transform: rotate(-45deg);
+      animation: heartFloat 5s linear infinite;
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      width: 15px;
+      height: 15px;
+      background: #ff69b4;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before { top: -7.5px; left: 0; }
+    .heart::after  { left: -7.5px; top: 0; }
+
+    @keyframes heartFloat {
+      0% { top: 100%; opacity: 1; }
+      100% { top: -10%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="birthday-text">🎉 Happy Birthday My Love ASHA YADAV (Janu) ❤️</div>
+  <button class="next-btn" onclick="window.location.href='cake.html'">Next 🎂</button>
+
+  <!-- Balloons and Hearts via JavaScript -->
+  <script>
+    for (let i = 0; i < 15; i++) {
+      let b = document.createElement('div');
+      b.className = 'balloon';
+      b.style.left = Math.random() * 100 + 'vw';
+      b.style.background = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      b.style.animationDuration = (6 + Math.random() * 5) + 's';
+      document.body.appendChild(b);
+    }
+
+    for (let i = 0; i < 20; i++) {
+      let h = document.createElement('div');
+      h.className = 'heart';
+      h.style.left = Math.random() * 100 + 'vw';
+      h.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(h);
+    }
+  </script>
+
+</body>
+</html>

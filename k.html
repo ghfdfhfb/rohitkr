@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You, My Love ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe0ec, #f3c6f1);
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe UI', cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .message-box {
+      max-width: 80%;
+      background: rgba(255,255,255,0.8);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.1);
+      animation: zoomIn 2s ease;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #d81b60;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #4a148c;
+      line-height: 1.8;
+    }
+
+    .hearts, .sparkles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .heart, .sparkle {
+      position: absolute;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    .heart {
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      width: 20px;
+      height: 20px;
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      width: 20px;
+      height: 20px;
+      top: 0;
+      left: -10px;
+    }
+
+    .sparkle {
+      width: 10px;
+      height: 10px;
+      background: yellow;
+      border-radius: 50%;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .btn {
+      margin-top: 25px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      background: #d81b60;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      animation: fadeIn 3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Effects -->
+  <div class="hearts" id="hearts"></div>
+  <div class="sparkles" id="sparkles"></div>
+
+  <!-- Message Box -->
+  <div class="message-box">
+    <h1>For You, Asha ❤️</h1>
+    <p>
+      You are the most precious part of my life.<br><br>
+      Every moment with you is a memory I never want to forget.<br><br>
+      On your special day, I just want to say – I feel lucky to have you.<br><br>
+      May your smile never fade, and we always be together... 🌸<br><br>
+      Happy Birthday My Love (ASHA) 💖
+    </p>
+    <button class="btn" onclick="window.location.href='index.html'">Replay Surprise 🎉</button>
+  </div>
+
+  <!-- Optional Music -->
+  <!-- 
+  <audio autoplay loop>
+    <source src="music/happy.mp3" type="audio/mp3">
+  </audio>
+  -->
+
+  <!-- JavaScript to generate hearts and sparkles -->
+  <script>
+    const heartContainer = document.getElementById("hearts");
+    const sparkleContainer = document.getElementById("sparkles");
+
+    for (let i = 0; i < 20; i++) {
+      let h = document.createElement("div");
+      h.className = "heart";
+      h.style.left = Math.random() * 100 + "vw";
+      h.style.animationDelay = Math.random() * 5 + "s";
+      heartContainer.appendChild(h);
+    }
+
+    for (let i = 0; i < 20; i++) {
+      let s = document.createElement("div");
+      s.className = "sparkle";
+      s.style.left = Math.random() * 100 + "vw";
+      s.style.animationDelay = Math.random() * 5 + "s";
+      sparkleContainer.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>

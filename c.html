@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Memories ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .slideshow {
+      width: 80%;
+      height: 70%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      border-radius: 20px;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 10;
+    }
+
+    .text {
+      margin-top: 25px;
+      font-size: 1.5rem;
+      color: #6a1b9a;
+    }
+
+    .next-btn {
+      margin-top: 20px;
+      padding: 10px 30px;
+      font-size: 1rem;
+      background: white;
+      color: #d81b60;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .next-btn.show {
+      display: inline-block;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slideshow" id="slideshow">
+    <img src="d.jpg" class="slide active">
+    <img src="e.jpg" class="slide">
+    <img src="f.jpg" class="slide">
+    <img src="g.jpg" class="slide">
+    <img src="h.jpg" class="slide">
+    <img src="i.jpg" class="slide">
+    <img src="j.jpg" class="slide">
+  </div>
+
+  <div class="text">💞 Our Beautiful Memories 💞</div>
+  <button class="next-btn" id="nextBtn" onclick="window.location.href='final.html'">Next ➡️</button>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    const showNextSlide = () => {
+      slides[index].classList.remove('active');
+      index++;
+      if (index < slides.length) {
+        slides[index].classList.add('active');
+      } else {
+        document.getElementById('nextBtn').classList.add('show');
+      }
+    };
+
+    setInterval(() => {
+      if (index < slides.length - 1) {
+        showNextSlide();
+      }
+    }, 3500); // 3.5 sec per photo
+  </script>
+
+</body>
+</html>

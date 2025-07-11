@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter Password</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffc0cb, #f5b5ff);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 150px;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 20px;
+      border: 2px solid #ff1493;
+      width: 250px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 30px;
+      font-size: 18px;
+      color: white;
+      background: linear-gradient(to right, #ff1493, #ff69b4);
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    h2 {
+      color: #d6006e;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>💌 Enter Your Secret Password 💌</h2>
+  <input type="password" id="password" placeholder="Enter password">
+  <br>
+  <button onclick="checkPassword()">Unlock 🔐</button>
+
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById("password").value;
+      const correct = "143rohit"; // 👈 Apna password yahan daal
+
+      if (pass === correct) {
+        window.location.href = "a3.html"; // 👈 Us file ka naam jahan le jaana hai
+      } else {
+        alert("❌ Wrong password!");
+      }
+    }
+  </script>
+
+</body>
+</html>
